@@ -107,5 +107,42 @@
         <quarkus.package.type>native</quarkus.package.type>
       </properties>
     </profile>
+    <profile>
+      <id>native-debug</id>
+      <activation>
+        <property>
+          <name>native-debug</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>${surefire-plugin.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>integration-test</goal>
+                  <goal>verify</goal>
+                </goals>
+                <configuration>
+                  <systemProperties>
+                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
+                  </systemProperties>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <properties>
+        <quarkus.package.type>native</quarkus.package.type>
+        <quarkus.native.additional-build-args>
+          -H:GenerateDebugInfo=1
+          ,-H:DebugInfoSourceSearchPath=../../workspace/qollider/0206/graalvm/mandrel/compiler/mxbuild/dists/jdk11/graal.src.zip
+          ,-H:DebugInfoSourceSearchPath=../../workspace/qollider/0206/graalvm/mandrel/sdk/mxbuild/dists/jdk11/graal-sdk.src.zip
+        </quarkus.native.additional-build-args>
+      </properties>
+    </profile>
   </profiles>
 </project>
