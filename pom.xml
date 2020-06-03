@@ -178,7 +178,7 @@
           -H:GenerateDebugInfo=1
           ,-H:DebugInfoSourceSearchPath=../../workspace/qollider/0206/graalvm/mandrel/compiler/mxbuild/dists/jdk11/graal.src.zip
           ,-H:DebugInfoSourceSearchPath=../../workspace/qollider/0206/graalvm/mandrel/sdk/mxbuild/dists/jdk11/graal-sdk.src.zip
-          ,--debug-attach=8000
+          ,--debug-attach=*:8000
         </quarkus.native.additional-build-args>
       </properties>
     </profile>
