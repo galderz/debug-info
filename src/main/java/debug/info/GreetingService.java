@@ -2,6 +2,7 @@ package debug.info;
 
 import javax.enterprise.context.ApplicationScoped;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.Random;
 
 @ApplicationScoped
@@ -15,8 +16,8 @@ public class GreetingService
             return String.format(
                 "hello %s - %tc - %s"
                 , name
-                , LocalDate.now()
-                , cipher1(name, new Random().nextInt(26))
+                , new Date()
+                , cipher1(name, name.length() % 26)
             );
         }
         else
@@ -24,8 +25,8 @@ public class GreetingService
             return String.format(
                 "hola %s - %tc - %s"
                 , name
-                , LocalDate.now()
-                , cipher2(name, cipher1(name, new Random().nextInt(26)))
+                , new Date()
+                , cipher2(name, cipher1(name, name.length() % 26))
             );
         }
     }
@@ -57,7 +58,7 @@ public class GreetingService
             result.append((char) ((c + key.charAt(j) - 2 * 'A') % 26 + 'A'));
             j = ++j % key.length();
         }
-        return result.toString();
+        return result.toString().toLowerCase();
     }
 
 }
