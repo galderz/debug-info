@@ -6,11 +6,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/hello")
-public class ExampleResource {
-
+public class ExampleResource
+{
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String hello() {
-        return "hello";
+    public String hello()
+    {
+        final var greeter = new Greeter();
+        return greeter.greet();
     }
 }
