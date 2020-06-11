@@ -23,4 +23,3 @@ native-debug-snapshot:
 	-Dquarkus.platform.version=999-SNAPSHOT \
 	-Dquarkus-plugin.version=999-SNAPSHOT \
 	-Dquarkus.platform.artifact-id=quarkus-bom
-

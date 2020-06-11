@@ -4,6 +4,6 @@ public class Greeter
 {
     String greet()
     {
-        return "hello!";
+        return "hello from the greeter!";
     }
 }
