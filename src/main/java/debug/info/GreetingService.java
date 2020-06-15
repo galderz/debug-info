@@ -13,20 +13,22 @@ public class GreetingService
         final var length = name.length();
         if (length % 2 == 0)
         {
+            final var encoded = cipher1(name, name.length() % 26);
             return String.format(
                 "hello %s - %tc - %s"
                 , name
                 , new Date()
-                , cipher1(name, name.length() % 26)
+                , encoded
             );
         }
         else
         {
+            final var encoded = cipher2(name, "this is only a test");
             return String.format(
                 "hola %s - %tc - %s"
                 , name
                 , new Date()
-                , cipher2(name, cipher1(name, name.length() % 26))
+                , encoded
             );
         }
     }
