@@ -23,3 +23,7 @@ native-debug-snapshot:
 	-Dquarkus.platform.version=999-SNAPSHOT \
 	-Dquarkus-plugin.version=999-SNAPSHOT \
 	-Dquarkus.platform.artifact-id=quarkus-bom
+
+create-source-cache:
+	mkdir target/jdk-src || true
+	unzip ${JAVA_HOME}/lib/src.zip -d target/jdk-src
