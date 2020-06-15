@@ -143,10 +143,6 @@
         <quarkus.package.type>native</quarkus.package.type>
         <quarkus.native.additional-build-args>
           -H:GenerateDebugInfo=1
-          ,-H:DebugInfoSourceSearchPath=../../workspace/qollider/graal.src.zip
-          ,-H:DebugInfoSourceSearchPath=../../workspace/qollider/graal-sdk.src.zip
-          ,-H:+PrintImageObjectTree
-          ,-H:+TraceClassInitialization
         </quarkus.native.additional-build-args>
       </properties>
     </profile>
