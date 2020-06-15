@@ -1,9 +1,7 @@
 package debug.info;
 
 import javax.enterprise.context.ApplicationScoped;
-import java.time.LocalDate;
 import java.util.Date;
-import java.util.Random;
 
 @ApplicationScoped
 public class GreetingService
