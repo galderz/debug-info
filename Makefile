@@ -9,6 +9,11 @@ native-snapshot:
 	-Dquarkus-plugin.version=999-SNAPSHOT \
 	-Dquarkus.platform.artifact-id=quarkus-bom
 
+native-debug-with-boolean:
+	./mvnw clean package -DskipTests \
+	-Pnative \
+	-Dquarkus.native.debug-symbols=true
+
 native-debug:
 	./mvnw clean package -DskipTests \
 	-Pnative-debug
