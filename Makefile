@@ -29,5 +29,5 @@ native-debug-snapshot-with-boolean:
 	-Pnative \
 	-Dquarkus.platform.version=999-SNAPSHOT \
 	-Dquarkus-plugin.version=999-SNAPSHOT \
-	-Dquarkus.platform.artifact-id=quarkus-bom
+	-Dquarkus.platform.artifact-id=quarkus-bom \
 	-Dquarkus.native.debug-symbols=true
