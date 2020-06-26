@@ -31,3 +31,12 @@ native-debug-snapshot-with-boolean:
 	-Dquarkus-plugin.version=999-SNAPSHOT \
 	-Dquarkus.platform.artifact-id=quarkus-bom \
 	-Dquarkus.native.debug.enabled=true
+
+maven-debug-native-debug-snapshot-with-boolean:
+	mvnDebug clean package -DskipTests \
+	-X \
+	-Pnative \
+	-Dquarkus.platform.version=999-SNAPSHOT \
+	-Dquarkus-plugin.version=999-SNAPSHOT \
+	-Dquarkus.platform.artifact-id=quarkus-bom \
+	-Dquarkus.native.debug.enabled=true
