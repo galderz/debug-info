@@ -121,49 +121,11 @@
       </build>
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
-        <quarkus.native.additional-build-args>
-          -H:+PrintImageObjectTree
-          ,-H:+PrintAnalysisCallTree
-        </quarkus.native.additional-build-args>
+        <quarkus.native.debug.enabled>true</quarkus.native.debug.enabled>
       </properties>
     </profile>
     <profile>
-      <id>native-debug</id>
-      <activation>
-        <property>
-          <name>native-debug</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <artifactId>maven-failsafe-plugin</artifactId>
-            <version>${surefire-plugin.version}</version>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>integration-test</goal>
-                  <goal>verify</goal>
-                </goals>
-                <configuration>
-                  <systemProperties>
-                    <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-                  </systemProperties>
-                </configuration>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-      <properties>
-        <quarkus.package.type>native</quarkus.package.type>
-        <quarkus.native.additional-build-args>
-          -H:GenerateDebugInfo=1
-        </quarkus.native.additional-build-args>
-      </properties>
-    </profile>
-    <profile>
-      <id>native-debug-attach</id>
+      <id>native-attach</id>
       <activation>
         <property>
           <name>native-debug-attach</name>
@@ -192,9 +154,9 @@
       </build>
       <properties>
         <quarkus.package.type>native</quarkus.package.type>
+        <quarkus.native.debug.enabled>true</quarkus.native.debug.enabled>
         <quarkus.native.additional-build-args>
-          -H:GenerateDebugInfo=1
-          ,--debug-attach=*:8000
+          --debug-attach=*:8000
         </quarkus.native.additional-build-args>
       </properties>
     </profile>
